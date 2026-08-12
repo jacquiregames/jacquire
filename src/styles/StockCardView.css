@@ -1,0 +1,122 @@
+/* src/styles/StockCardView.css */
+
+.stock-card-view-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.player-card-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-height: 70px;
+  max-height: 85px;
+  min-width: 600px;
+}
+
+/* Updated to match the "Pill" look from PlayerStatusPanel.
+   `background` is set per-player via the --player-pill-bg custom property
+   (see StockCardView.tsx) since it's genuinely per-instance data, not a
+   fixed style choice — everything else here used to be an inline override
+   with the same values and is now just the base rule. */
+.player-card-name-pill {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 15px; 
+  border: 2px solid black;
+  background: var(--player-pill-bg);
+  color: var(--color-white);
+  text-shadow: var(--shadow-text-heavy);
+  flex-shrink: 0;
+  min-width: 200px; /* Widened to fit Name + Cash/Powers */
+  box-sizing: border-box;
+}
+
+.player-card-name-text {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.player-card-cash-text {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+/* Power Icons styling inside the pill */
+.player-card-powers {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.player-card-powers img {
+  width: 28px;
+  height: 28px;
+}
+
+.player-card-holdings {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding-bottom: 5px;
+}
+
+.stock-card-stack {
+  position: relative;
+  width: 47px;
+  height: 85px;
+  flex-shrink: 0; 
+}
+
+.stock-card-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 47px;
+  height: 65px;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  transition: transform var(--duration-fast) var(--ease-decelerate);
+}
+
+.stock-card-stack:hover .stock-card-image {
+  transform: translateY(0);
+}
+
+/* Per-card stack offset for owned-stock displays. Both this component
+   and TileSelector render the same .stock-card-stack > .stock-card-image
+   structure (TileSelector imports this stylesheet for exactly that
+   reason), so this lives here once rather than duplicated. Replaces what
+   used to be a per-<img> inline
+   style={{ transform: `translateY(${i * 2}px)`, zIndex: i }}.
+   Capped at 25 -- the max shares any one chain can have. */
+.stock-card-stack .stock-card-image:nth-child(1) { transform: translateY(0px); z-index: 0; }
+.stock-card-stack .stock-card-image:nth-child(2) { transform: translateY(2px); z-index: 1; }
+.stock-card-stack .stock-card-image:nth-child(3) { transform: translateY(4px); z-index: 2; }
+.stock-card-stack .stock-card-image:nth-child(4) { transform: translateY(6px); z-index: 3; }
+.stock-card-stack .stock-card-image:nth-child(5) { transform: translateY(8px); z-index: 4; }
+.stock-card-stack .stock-card-image:nth-child(6) { transform: translateY(10px); z-index: 5; }
+.stock-card-stack .stock-card-image:nth-child(7) { transform: translateY(12px); z-index: 6; }
+.stock-card-stack .stock-card-image:nth-child(8) { transform: translateY(14px); z-index: 7; }
+.stock-card-stack .stock-card-image:nth-child(9) { transform: translateY(16px); z-index: 8; }
+.stock-card-stack .stock-card-image:nth-child(10) { transform: translateY(18px); z-index: 9; }
+.stock-card-stack .stock-card-image:nth-child(11) { transform: translateY(20px); z-index: 10; }
+.stock-card-stack .stock-card-image:nth-child(12) { transform: translateY(22px); z-index: 11; }
+.stock-card-stack .stock-card-image:nth-child(13) { transform: translateY(24px); z-index: 12; }
+.stock-card-stack .stock-card-image:nth-child(14) { transform: translateY(26px); z-index: 13; }
+.stock-card-stack .stock-card-image:nth-child(15) { transform: translateY(28px); z-index: 14; }
+.stock-card-stack .stock-card-image:nth-child(16) { transform: translateY(30px); z-index: 15; }
+.stock-card-stack .stock-card-image:nth-child(17) { transform: translateY(32px); z-index: 16; }
+.stock-card-stack .stock-card-image:nth-child(18) { transform: translateY(34px); z-index: 17; }
+.stock-card-stack .stock-card-image:nth-child(19) { transform: translateY(36px); z-index: 18; }
+.stock-card-stack .stock-card-image:nth-child(20) { transform: translateY(38px); z-index: 19; }
+.stock-card-stack .stock-card-image:nth-child(21) { transform: translateY(40px); z-index: 20; }
+.stock-card-stack .stock-card-image:nth-child(22) { transform: translateY(42px); z-index: 21; }
+.stock-card-stack .stock-card-image:nth-child(23) { transform: translateY(44px); z-index: 22; }
+.stock-card-stack .stock-card-image:nth-child(24) { transform: translateY(46px); z-index: 23; }
+.stock-card-stack .stock-card-image:nth-child(25) { transform: translateY(48px); z-index: 24; }

@@ -1,0 +1,156 @@
+/* Corporate M&A HighScore Container Styles */
+/*
+ * .highscore-container now lives in shared-panels.css.
+ * HighScore.tsx adds the "floating-panel" base class alongside it.
+ */
+
+/* Cyberpunk Glassmorphism Wrapper */
+.highscore-glow-wrap {
+  position: relative;
+  border-radius: 4px; /* Sharper, more corporate corners */
+  padding: 1px;
+  background: linear-gradient(135deg, var(--color-cyan-accent), #7000ff, var(--color-cyan-accent));
+  background-size: 200% 200%;
+  animation: borderScan 4s linear infinite;
+  box-shadow: 
+    0 0 15px rgba(0, 242, 255, 0.3),
+    inset 0 0 10px rgba(112, 0, 255, 0.2);
+}
+
+@keyframes borderScan {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* Inner panel - Corporate Glass */
+.highscore-panel {
+  position: relative;
+  background: rgba(10, 12, 24, 0.9);
+  backdrop-filter: blur(12px);
+  border-radius: 3px;
+  padding: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 242, 255, 0.1);
+}
+
+/* Digital Grid Background Effect */
+.highscore-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(0, 242, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 242, 255, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+  pointer-events: none;
+}
+
+/* Scanner line animation */
+.scanner-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-cyan-accent), transparent);
+  animation: scanMove 3s ease-in-out infinite;
+  opacity: 0.5;
+  z-index: 2;
+}
+
+@keyframes scanMove {
+  0% { top: 0%; opacity: 0; }
+  50% { opacity: 0.8; }
+  100% { top: 100%; opacity: 0; }
+}
+
+/* Title - High Tech Sans */
+.highscore-title {
+  text-align: center;
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-cyan-accent);
+  margin-bottom: 4px;
+  position: relative;
+  text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+}
+
+/* Score rows */
+.score-row {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-bottom: 12px;
+  position: relative;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border-left: 3px solid transparent;
+  transition: all var(--duration-base) var(--ease-standard);
+  animation: rowSlideIn 0.5s ease forwards;
+  opacity: 0;
+}
+
+.score-row:last-child { margin-bottom: 0; }
+
+.score-row:hover {
+  background: rgba(0, 242, 255, 0.08);
+  border-left-color: var(--color-cyan-accent);
+  transform: translateX(-5px);
+}
+
+@keyframes rowSlideIn {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Rank Indicator */
+.rank-badge {
+  font-family: 'Courier New', monospace;
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--color-cyan-accent);
+  width: 24px;
+}
+
+/* Score info */
+.score-info {
+  flex: 1;
+}
+
+.score-value {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-white);
+  letter-spacing: 0.5px;
+}
+
+.player-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--color-cyan-accent);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.flex-indicator {
+  display: flex;
+  align-items: center;
+}
+
+.pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background-color: var(--color-cyan-accent);
+  animation: pulse-dot-anim 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse-dot-anim {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}

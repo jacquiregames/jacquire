@@ -1,0 +1,161 @@
+/* src/styles/HowToPlay.css */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: var(--z-modal);
+  backdrop-filter: blur(5px);
+  animation: how-to-play-fade-in 0.3s ease-out;
+}
+
+@keyframes how-to-play-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  background: linear-gradient(to bottom, #f0f4f8, #d9e2ec);
+  padding: 0;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 90vw;
+  max-height: 90vh;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--color-light-slate-bg);
+}
+
+.modal-header {
+  padding: 0.5rem 0.5rem; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #e9eff5;
+}
+
+.modal-body {
+  padding: 0 2rem 0.5rem 1.5rem;
+  overflow-y: auto;
+}
+
+.modal-close-button {
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  cursor: pointer;
+  color: var(--color-black);
+  line-height: 1;
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+.modal-close-button:hover { color: var(--color-black); }
+
+.how-to-play-heading {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--color-black);
+  transform: translateX(175%);
+}
+
+.how-to-play-columns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+  align-items: start;
+}
+
+.how-to-play-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.how-to-play-section {
+  margin: 0;
+  margin-bottom: -10px;
+}
+
+.how-to-play-subheading {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2c5282;
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--color-light-slate-bg);
+}
+
+.how-to-play-paragraph,
+.how-to-play-content ul {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #4a5568;
+}
+
+.how-to-play-content ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.how-to-play-content li {
+  position: relative;
+  padding-left: 1.5em;
+  margin-bottom: 0.4em;
+}
+
+.how-to-play-content li::before {
+  content: '🔹';
+  position: absolute;
+  left: 0;
+  color: #3b82f6;
+}
+
+/* --- Stock Section Custom Classes --- */
+
+.how-to-play-stocks-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--color-light-slate-bg);
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.5rem;
+}
+
+.how-to-play-stocks-title {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.how-to-play-stocks-cards {
+  display: flex;
+  gap: 4px;
+}
+
+.how-to-play-stock-card {
+  height: 40px;
+  width: auto;
+  border-radius: 3px;
+  box-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+}
+
+.hotel-list{
+  height: 200px;
+}
+
+.founded{
+  display: flex-end;
+  height: 40px;  
+  width: auto;
+  margin-top: -10px;
+}

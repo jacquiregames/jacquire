@@ -1,0 +1,38 @@
+{
+  "name": "jacquire",
+  "private": true,
+  "version": "6.8.1",
+  "type": "module",
+  "description": "Web-based implementation of the board game Acquire.",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "tsc && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fireworks-js/react": "^2.10.8",
+    "@tsparticles/confetti": "^4.3.2",
+    "@tsparticles/engine": "^4.3.2",
+    "@tsparticles/react": "^4.3.2",
+    "axios": "^1.18.1",
+    "motion": "^12.43.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-switch": "^7.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.5",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react-swc": "^4.3.2",
+    "eslint": "^10.8.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.3",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.6",
+    "vite-plugin-node-polyfills": "^0.25.0"
+  },
+  "packageManager": "pnpm@11.18.0+sha512.33d83c77da82f49fba836925c6f1b841181ec3132b670639bd012f7075f5c7cf634c5f870147c19aae7478fac01df09d8892e880454896edd23ee9b33757563c"
+}
+

@@ -1,0 +1,430 @@
+/* src/styles/GameBoard.css */
+
+.action-buttons-container {
+  display: flex;
+  gap: 12px;
+  margin-top: 6px;
+  flex-wrap: nowrap; /* Prevent wrapping so they stay side-by-side */
+  width: 720px;
+  align-items: flex-start; /* Align tops of containers */
+  justify-content: center; /* CHANGED to center the TileSelector now that GameLog is removed */
+}
+
+.new-tiles-button {
+  height: 60px;
+  font-size: 1.2rem;
+  padding: 0 2rem;
+}
+
+.board-container {
+  position: relative;
+  width: 720px;
+}
+
+.two-by-two-image {
+  position: absolute;
+  width: 112px;  
+  height: 112px; 
+  z-index: 5; 
+  pointer-events: none; 
+  animation: fadeIn 0.5s ease-out; 
+}
+.four-by-one-image {
+  position: absolute;
+  width: 52px;
+  height: 232px;
+  z-index: 5;
+  pointer-events: none;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.board-grid {
+  display: grid;
+  grid-template-rows: repeat(9, 60px);
+  gap: 0px;
+  margin-bottom: 16px;
+  border: 2px solid black;
+  background-color: black;
+  width: 720px;
+  box-sizing: border-box; 
+}
+
+.board-row {
+  display: grid;
+  grid-template-columns: repeat(12, 60px);
+  gap: 0px;
+}
+
+.floating-text {
+  position: absolute;
+  animation: float-up 1.5s ease-out forwards;
+  font-weight: bold;
+  pointer-events: none;
+}
+.floating-text.gain { color: var(--color-black); }
+.floating-text.cost { color: var(--color-danger-bright); }
+
+.game-container {
+  display: grid;
+  grid-template-columns: 1fr auto; 
+  gap: 20px;
+  min-height: 100vh;
+  max-height: 100vh;
+  padding: 16px;
+  box-sizing: border-box;
+  overflow-y: visible;
+}
+
+.gameboard-container {
+  padding: 24px;
+  font-family: var(--font-main);
+  overflow: visible;
+  height: auto;
+}
+
+.left-panel{
+  overflow-y: visible;
+  max-height: 100%;
+}
+.right-panel {
+  overflow-y: visible;
+  max-height: 100%;
+  width: 500px; 
+}
+
+.powers-panel {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: var(--z-panel); /* <-- Change 100 to this */ 
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-end; /* This will align all children to the right */
+}
+
+/* NOTE: a .modal-backdrop-fullscreen rule previously lived here but was
+   unused by any component (dead code) — removed. */
+
+.power-up-sheen {
+  position: relative;
+  overflow: hidden;
+}
+.power-up-sheen::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  transform: translateX(-100%);
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  animation: shimmer-sheen 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.stock-panel-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: 20px;
+}
+
+/* Tile Button Styles */
+.tile-button.chain-american     { background-color: var(--flash-american-color); color: black; }
+.tile-button.chain-continental  { background-color: var(--flash-continental-color); color: black; }
+.tile-button.chain-default      { background-color: #95a5a6; color: white; }
+.tile-button.chain-festival     { background-color: var(--flash-festival-color); color: white; }
+.tile-button.chain-imperial     { background-color: var(--flash-imperial-color); color: white; }
+.tile-button.chain-luxor        { background-color: var(--flash-luxor-color); color: white; }
+.tile-button.chain-tower        { background-color: var(--flash-tower-color); color: white; }
+.tile-button.chain-worldwide    { background-color: var(--flash-worldwide-color); color: white; }
+
+.tile-button.empty { background-color: white; color: black; }
+
+.tile-button.connected-top { border-top-width: 0; }
+.tile-button.connected-bottom { border-bottom-width: 0; }
+.tile-button.connected-left { border-left-width: 0; }
+.tile-button.connected-right { border-right-width: 0; }
+
+.tile-button.my-tile,
+.tile-button.tile-valid {
+  animation: pulse-glow-green 1.5s infinite ease-in-out;
+  z-index: 3;
+  position: relative;
+  background-color: aqua;
+}
+.tile-button.tile-placed {
+  background-color: #999;
+  color: #333;
+  border: 2px solid #999;
+}
+.tile-button.wild-valid {
+  animation: pulse-glow-purple 1.5s infinite ease-in-out;
+  z-index: 2; 
+  position: relative;
+  background-color: #f3e8ff; 
+}
+.tile-button.last-placed-tile {
+  animation: pulse-glow-red 1.5s infinite ease-in-out;
+  z-index: 4;
+  position: relative;
+}
+
+/* Safe Chain Pattern logic (kept as is) */
+.tile-button.safe-chain { position: relative; }
+.tile-button.safe-chain::before, .tile-button.safe-chain::after {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none;
+}
+.tile-button.safe-chain::before {
+  background-image: linear-gradient(90deg, black 50%, transparent 50%), linear-gradient(90deg, black 50%, transparent 50%);
+  background-repeat: repeat-x, repeat-x;
+  background-size: 10px 3px, 10px 3px;
+  background-position: 0% 0%, 100% 100%;
+  animation: dash-x 15s linear infinite;
+}
+.tile-button.safe-chain::after {
+  background-image: linear-gradient(0deg, black 50%, transparent 50%), linear-gradient(0deg, black 50%, transparent 50%);
+  background-repeat: repeat-y, repeat-y;
+  background-size: 3px 10px, 3px 10px;
+  background-position: 0% 100%, 100% 0%;
+  animation: dash-y 15s linear infinite;
+}
+.tile-button.safe-chain.connected-top::before { background-image: none, linear-gradient(90deg, black 50%, transparent 50%); }
+.tile-button.safe-chain.connected-bottom::before { background-image: linear-gradient(90deg, black 50%, transparent 50%), none; }
+.tile-button.safe-chain.connected-top.connected-bottom::before { background-image: none, none; }
+.tile-button.safe-chain.connected-left::after { background-image: none, linear-gradient(0deg, black 50%, transparent 50%); }
+.tile-button.safe-chain.connected-right::after { background-image: linear-gradient(0deg, black 50%, transparent 50%), none; }
+.tile-button.safe-chain.connected-left.connected-right::after { background-image: none, none; }
+
+/* Safe Chain American (White border override) */
+.tile-button.safe-chain.chain-american::before {
+  background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(90deg, white 50%, transparent 50%);
+}
+.tile-button.safe-chain.chain-american::after {
+  background-image: linear-gradient(0deg, white 50%, transparent 50%), linear-gradient(0deg, white 50%, transparent 50%);
+}
+.tile-button.safe-chain.chain-american.connected-top::before { background-image: none, linear-gradient(90deg, white 50%, transparent 50%); }
+.tile-button.safe-chain.chain-american.connected-bottom::before { background-image: linear-gradient(90deg, white 50%, transparent 50%), none; }
+.tile-button.safe-chain.chain-american.connected-top.connected-bottom::before { background-image: none, none; }
+.tile-button.safe-chain.chain-american.connected-left::after { background-image: none, linear-gradient(0deg, white 50%, transparent 50%); }
+.tile-button.safe-chain.chain-american.connected-right::after { background-image: linear-gradient(0deg, white 50%, transparent 50%), none; }
+.tile-button.safe-chain.chain-american.connected-left.connected-right::after { background-image: none, none; }
+
+.tile-ripple { animation: ripple-color-in 0.5s ease-out forwards; }
+
+.your-turn-animation-container {
+  position: fixed;
+  bottom: -2px;
+  left: 0;
+  width: 100vw;
+  height: 100px; /* Adjust based on image height */
+  z-index: var(--z-banner);
+  pointer-events: none;
+  overflow: hidden; /* Prevent horizontal scrollbars during animation */
+}
+
+.your-turn-image {
+  height: 100px;
+  width: auto;
+  position: absolute;
+  left: 0;
+}
+
+/* Image 1: Moves Right to Left */
+.your-turn-image-1 {
+  transform: translateX(100vw); /* Start off-screen Right */
+  animation: sequence-1 20s linear infinite;
+}
+/* Image 2: Moves Left to Right */
+.your-turn-image-2 {
+  transform: translateX(-100%); /* Start off-screen Left */
+  animation: sequence-2 20s linear infinite;
+}
+
+.game-over-animation-container {
+  position: fixed;
+  bottom: -2px;
+  left: 0;
+  width: 100vw;
+  height: 150px; /* Increased height slightly for game over banners */
+  z-index: var(--z-banner);
+  pointer-events: none;
+  overflow: hidden; 
+}
+
+.game-over-image {
+  height: 150px; /* Matching container height */
+  width: auto;
+  position: absolute;
+  left: 0;
+}
+
+/* Right to Left */
+.game-over-image-2 {
+  transform: translateX(100vw); 
+  animation: sequence-1 20s linear infinite;
+}
+/* Left to Right */
+.game-over-image-1 {
+  transform: translateX(-100%); 
+  animation: sequence-2 20s linear infinite;
+}
+
+.game-container.game-over-layout {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 24px;
+}
+
+/* --- CUSTOM TILE TOOLTIP --- */
+.custom-tile-tooltip {
+  position: fixed;
+  z-index: var(--z-tooltip);
+  color: white;
+  border-radius: 12px;
+  padding: 16px 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+  border: 8px solid white;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
+  pointer-events: none;
+  font-family: var(--font-main);
+  backdrop-filter: blur(6px);
+  transition: top 0.05s linear, left 0.05s linear;
+}
+
+.custom-tile-tooltip-content {
+  display: flex;
+  gap: 30px;
+}
+
+.tooltip-col-left {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-right: 2px solid rgba(255, 255, 255, 0.4);
+  padding-right: 24px;
+}
+
+.tooltip-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  padding-bottom: 8px;
+}
+
+.tooltip-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  filter: drop-shadow(1px 1px 3px rgba(0,0,0,0.6));
+}
+
+.tooltip-stat {
+  font-size: 1.4rem;
+}
+
+.tooltip-col-right {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 180px;
+}
+
+.tooltip-players-header {
+  font-size: 1.4rem;
+  font-weight: 800;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+
+.tooltip-player-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.3rem;
+}
+
+.tooltip-player-name {
+  font-weight: 600;
+}
+
+.tooltip-player-stock {
+  font-weight: 800;
+  text-align: right;
+  margin-left: 20px;
+}
+
+
+
+/* Animations */
+@keyframes pulse-glow-green {
+  0% { transform: scale(1); box-shadow: 0 0 4px 2px rgba(50, 205, 50, 0.4); }
+  50% { transform: scale(1.05); box-shadow: 0 0 12px 6px rgba(50, 205, 50, 0.7); }
+  100% { transform: scale(1); box-shadow: 0 0 4px 2px rgba(50, 205, 50, 0.4); }
+}
+@keyframes pulse-glow-red {
+  0% { transform: scale(1); box-shadow: 0 0 2px 2px rgba(255, 0, 0, 0.7); border-color: rgba(255, 0, 0, 0.7); }
+  50% { transform: scale(1.1); box-shadow: 0 0 12px 6px rgba(255, 0, 0, 0.9); border-color: rgba(255, 0, 0, 1); }
+  100% { transform: scale(1); box-shadow: 0 0 2px 2px rgba(255, 0, 0, 0.7); border-color: rgba(255, 0, 0, 0.7); }
+}
+@keyframes float-up {
+  from { transform: translateY(0); opacity: 1; }
+  to   { transform: translateY(-40px); opacity: 0; }
+}
+@keyframes dash-x { to { background-position: 100% 0%, 0% 100%; } }
+@keyframes dash-y { to { background-position: 0% 0%, 100% 100%; } }
+@keyframes ripple-color-in {
+  from { transform: scale(0.5); opacity: 0.5; }
+  to   { transform: scale(1); opacity: 1; }
+}
+@keyframes sequence-1 {
+  0% { transform: translateX(100vw); }
+  50% { transform: translateX(-100%); } /* Finished moving left */
+  50.01% { transform: translateX(100vw); } /* Reset to start */
+  100% { transform: translateX(100vw); }   /* Wait */
+}
+@keyframes sequence-2 {
+  0% { transform: translateX(-100%); }     /* Wait position */
+  50% { transform: translateX(-100%); }    /* Still waiting */
+  100% { transform: translateX(100vw); }   /* Finished moving right */
+}
+@keyframes shimmer-sheen {
+  100% { transform: translateX(100%); }
+}
+@keyframes pulse-glow-purple {
+  0% { transform: scale(1); box-shadow: 0 0 4px 2px rgba(138, 43, 226, 0.4); }
+  50% { transform: scale(1.05); box-shadow: 0 0 12px 6px rgba(138, 43, 226, 0.7); }
+  100% { transform: scale(1); box-shadow: 0 0 4px 2px rgba(138, 43, 226, 0.4); }
+}
+
+/* Board-wide "impact" shake, triggered only for large mergers (5+ tiles
+   absorbed) so the scale of a big acquisition actually registers, without
+   shaking the board on every routine 2-tile merge. */
+.board-shake {
+  animation: board-shake 0.45s var(--ease-standard, ease-in-out);
+}
+@keyframes board-shake {
+  0%   { transform: translate(0, 0); }
+  20%  { transform: translate(-6px, 3px); }
+  40%  { transform: translate(5px, -3px); }
+  60%  { transform: translate(-4px, 2px); }
+  80%  { transform: translate(3px, -1px); }
+  100% { transform: translate(0, 0); }
+}
+
+@media (max-width: 1400px) {
+  .game-container { grid-template-columns: 1fr 280px; }
+}
+@media (max-width: 1200px) {
+  .game-container { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
+}
+@media (max-width: 800px) {
+  .stock-panel-row { flex-direction: column; }
+}
