@@ -1,0 +1,42 @@
+/* src/styles/SpecialPowersPanel.css */
+
+.special-powers-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 400px; /* A consistent width for the column */
+}
+
+.power-banner-button {
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: 24px;
+  overflow: hidden; /* Ensures the image respects the border-radius */
+  transition: transform var(--duration-fast) var(--ease-standard), box-shadow var(--duration-fast) var(--ease-standard);
+  border: 1px solid black;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.power-banner-button img {
+  display: block;
+  width: 100%;
+  height: auto; /* Let height adjust to maintain aspect ratio */
+  object-fit: contain;
+}
+
+.power-banner-button:hover:not(:disabled) {
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.power-banner-button:active:not(:disabled) {
+  transform: scale(0.98);
+  transition-duration: 0.1s;
+}
+
+.power-banner-button:disabled {
+  cursor: not-allowed; 
+  box-shadow: none;
+}

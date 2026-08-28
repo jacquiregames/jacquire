@@ -1,0 +1,15 @@
+{"name": "test", "score": 51900, "players": 2}
+{"name": "test", "score": 43100, "players": 2}
+{"name": "EMPTY", "score": 7, "players": 2}
+{"name": "bbb", "score": 56300, "players": 3}
+{"name": "aaa", "score": 55800, "players": 3}
+{"name": "test", "score": 55700, "players": 3}
+{"name": "djax", "score": 41600, "players": 4}
+{"name": "EMPTY", "score": 3, "players": 4}
+{"name": "EMPTY", "score": 2, "players": 4}
+{"name": "EMPTY", "score": 3, "players": 5}
+{"name": "EMPTY", "score": 2, "players": 5}
+{"name": "EMPTY", "score": 1, "players": 5}
+{"name": "djax", "score": 31800, "players": 6}
+{"name": "EMPTY", "score": 3, "players": 6}
+{"name": "EMPTY", "score": 2, "players": 6}

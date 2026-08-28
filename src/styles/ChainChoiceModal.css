@@ -1,0 +1,68 @@
+/* src/styles/ChainChoiceModal.css */
+
+.chain-choice-modal {
+  background: var(--color-white);
+  border-radius: 0px; 
+  border: 1px solid black;
+  padding: 24px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  font-family: var(--font-main);
+    position: fixed;
+  left: 0;
+  bottom: 0;
+  margin-bottom: 30px;
+  margin-left: 40vw;
+}
+ 
+.merger-instruction {
+  font-size: 0.9rem;
+  color: #666;
+  text-align: center;
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 6px;
+}
+
+.merger-options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.merger-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-standard);
+  color: white;
+  /* FIX (react-doctor: prefer-tag-over-role): this class now styles a
+     native <button> instead of a div with role="button" — reset the
+     browser's default button chrome/typography so it still renders
+     identically to before. `font: inherit` must come BEFORE
+     font-weight: bold below, since the `font` shorthand resets every font
+     sub-property (including weight) — declared after it, font-weight wins. */
+  font: inherit;
+  appearance: none;
+  -webkit-appearance: none;
+  font-weight: bold;
+}
+
+.merger-option:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(0,0,0,0.2);
+}
+
+/*
+ * .modal-backdrop and the .panel-banner-container / .panel-title-image /
+ * .panel-title-overlay banner system now live in shared-panels.css.
+ * ChainChoiceModal.tsx applies the "--chain-choice" modifier classes for
+ * this component's specific spacing/font-size deltas.
+ */

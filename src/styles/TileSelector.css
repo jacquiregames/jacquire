@@ -1,0 +1,131 @@
+/* src/TileSelector.css */
+ 
+.tile-selector-container {
+  margin-top: -25px;
+  width: auto; /* Changed from 100% */
+  flex-grow: 1; /* Allows it to take available space */
+}
+.tile-selector-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0px;
+}
+.tile-selector-title {
+  font-size: 24px;
+  margin-bottom: 0;
+  text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.9), 2px 2px 4px rgba(0, 0, 0, 0.8);
+  color: white;    
+}
+
+.tile-selector-row {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: -15px;
+
+}
+.tile-selector-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Consolidated Tile Button Styles */
+.tile-button {
+  width: 60px;
+  height: 60px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  padding: 0;
+  border: 2px solid black;
+  background-color: white;
+  box-sizing: border-box; 
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+.tile-button:hover:not(:disabled) {
+  transform: scale(1.05);
+}
+.tile-button.selected {
+  background-color: #2563eb;
+  color: white;
+  border-color: #1d4ed8;
+}
+
+
+.tile-button.valid:hover {
+  box-shadow: 0 0 0 3px rgba(0, 255, 0, 0.5);
+  background-color: #e6ffee;
+}
+
+button.tile-button.tile-unplayable {
+  background-color: #ffdddd;
+  cursor: not-allowed;
+  color: #a0a0a0;
+}
+button.tile-button.tile-unplayable:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.tile-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+.wild-tile-button img { width: 56px; height: 56px; }
+.wild-tile-button:disabled {
+  cursor: not-allowed;
+  filter: grayscale(90%) opacity(0.6);
+  transform: none;
+}
+.wild-tile-button:disabled:hover { transform: none; }
+
+.new-tiles-button-container {
+  margin-top: 12px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.new-tiles-button {
+  height: 60px;
+  font-size: 1.2rem;
+  padding: 0 2rem;
+}
+
+/* TWEAK: Dead Tile Styling */
+button.tile-button.tile-dead {
+  background-color: var(--color-border-slate);
+  cursor: not-allowed;
+  color: #475569;
+  position: relative;
+}
+button.tile-button.tile-dead:hover {
+  transform: none;
+  box-shadow: none;
+}
+button.tile-button.tile-dead::after {
+  content: '💀';
+  position: absolute;
+  bottom: 1px;
+  right: 2px;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+
+
+.tile-selector-header.your-stocks-header {
+  margin-top: -4px;
+}
+
+.player-card-holdings.tile-selector-stock-holdings {
+  padding-bottom: 0;
+  flex-wrap: wrap;
+}

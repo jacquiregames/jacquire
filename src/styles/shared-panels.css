@@ -1,0 +1,162 @@
+/* src/styles/shared-panels.css */
+
+/*
+ * ============================================================
+ * SHARED BANNER / TITLE-OVERLAY SYSTEM
+ * ============================================================
+ * Used by StockPurchase, ChainChoiceModal, and TradeStockPowerModal.
+ * These three used to each define an identically-named
+ * .panel-banner-container / .panel-title-image / .panel-title-overlay /
+ * .panel-subtitle-overlay block directly in their own stylesheet. Since all
+ * CSS in this app loads globally (plain `import './x.css'`, not CSS
+ * modules), that meant three different value sets were fighting over the
+ * same class names, and each modal needed !important just to make sure its
+ * own version won.
+ *
+ * Fix: base classes below hold what's common to all three; each modal adds
+ * one small modifier class (via a second className) for its own deltas.
+ */
+
+.panel-banner-container {
+  position: relative;
+  width: 100%;
+}
+
+.panel-title-image {
+  height: auto;
+  width: 100%;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  border-radius: var(--radius-sm);
+}
+
+.panel-title-overlay {
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  color: var(--color-white);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.9), 2px 2px 4px rgba(0, 0, 0, 0.8);
+  white-space: nowrap;
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.panel-subtitle-overlay {
+  display: block;
+  font-size: 0.7em;
+  font-weight: 600;
+}
+
+/* --- Per-modal deltas (identical numbers to what each modal had before) --- */
+
+/* StockPurchase */
+.panel-banner-container--stock-purchase {
+  margin-bottom: 10px;
+  gap: 24px;
+}
+.panel-title-image--stock-purchase {
+  margin-bottom: 15px;
+}
+.panel-subtitle-overlay--stock-purchase {
+  margin-top: -2px;
+  margin-bottom: 2px;
+}
+
+/* ChainChoiceModal */
+.panel-banner-container--chain-choice {
+  margin-bottom: 20px;
+}
+.panel-title-overlay--chain-choice {
+  font-size: 1.2rem;
+}
+
+/* TradeStockPowerModal */
+.panel-banner-container--trade-power {
+  margin-bottom: -15px;
+}
+.panel-subtitle-overlay--trade-power {
+  margin-top: 3px;
+}
+
+
+/*
+ * ============================================================
+ * SHARED FLOATING CHROME PANEL SYSTEM
+ * ============================================================
+ * Every fixed-position UI element that floats over the board (modal
+ * backdrops, the game log, the high-score panel) used to invent its own
+ * one-off class name and hand-tuned pixel offsets, independently, in five
+ * different files. One of them (TradeStockPowerModal) used a class name
+ * (.modal-backdrop-bottom-right) that it never actually defined or
+ * imported — it only "worked" because StockPurchase.css happened to load
+ * somewhere else in the bundle. That's fixed now: this file is imported
+ * explicitly by every component that uses one of these classes.
+ *
+ * .floating-panel holds the one thing all of them share (position: fixed).
+ * Everything else (offsets, alignment, z-index tier) stays with the
+ * specific named class below, unchanged from its original values, so this
+ * is a pure relocation — no visual difference from before.
+ */
+
+.floating-panel {
+  position: fixed;
+}
+
+/* ChainChoiceModal: bottom-right corner, flex end-aligned */
+.modal-backdrop {
+  right: 20px;
+  bottom: 20px;
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  z-index: var(--z-modal);
+}
+
+/* StockPurchase + TradeStockPowerModal: tighter bottom-right corner */
+.modal-backdrop-bottom-right {
+  bottom: 10px;
+  right: 17px;
+  z-index: var(--z-modal);
+}
+
+/* MergerResolutionModal: horizontally-shifted, vertically centered, click-through */
+.modal-backdrop-centered {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-bottom: 30px;
+  margin-left: 40vw;
+  display: flex;
+  align-items: center;
+  z-index: var(--z-modal-elevated);
+  pointer-events: none; /* Allows interacting with panels outside of modal bounds */
+}
+
+/* GameLog: fixed bottom-right panel, its own z-index tier */
+.game-log-container {
+  bottom: 10px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 350px;
+  box-shadow: var(--shadow-lg);
+  z-index: var(--z-log);
+}
+
+/* HighScore: small fixed side panel, its own z-index tier */
+.highscore-container {
+  bottom: 28px;
+  right: 50px;
+  width: 250px;
+  z-index: var(--z-panel);
+}

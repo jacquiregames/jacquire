@@ -1,0 +1,197 @@
+/* src/styles/StockPurchase.css */
+/*
+ * Shared banner (.panel-banner-container / .panel-title-image /
+ * .panel-title-overlay / .panel-subtitle-overlay) and the bottom-right
+ * floating panel positioning (.floating-panel .modal-backdrop-bottom-right)
+ * now live in shared-panels.css. StockPurchase.tsx applies the
+ * "--stock-purchase" modifier classes for this component's specific
+ * spacing deltas.
+ */
+
+.panel-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex-grow: 1; 
+}
+
+.stock-modal-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px; 
+}
+
+.stock-panels-row {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; 
+}
+
+.stock-panel { 
+  background-image: url('/images/background/buy_background.webp');
+  background-size: 100% auto;
+  background-position: center;  
+  background-repeat: no-repeat;
+  border-radius: 0px; 
+  padding: 6px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-main);
+  border: 6px solid rgba(20, 255, 107, 1);
+}
+
+/* Hotel Background Colors */
+.bg-luxor { background-color: var(--flash-luxor-color); }
+.bg-tower { background-color: var(--flash-tower-color); }
+.bg-festival { background-color: var(--flash-festival-color); }
+.bg-worldwide { background-color: var(--flash-worldwide-color); }
+.bg-american { background-color: var(--flash-american-color); }
+.bg-continental { background-color: var(--flash-continental-color); }
+.bg-imperial { background-color: var(--flash-imperial-color); }
+
+/* --- NEW ROW LAYOUT STYLES --- */
+
+.stock-purchase-list {
+  max-height: 85vh;
+  overflow-y: auto;
+  padding-right: 4px; /* Room for scrollbar */
+}
+
+/* Scrollbar styling */
+.stock-purchase-list::-webkit-scrollbar {
+  width: 6px;
+}
+.stock-purchase-list::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+  border-radius: 4px;
+}
+.stock-purchase-list::-webkit-scrollbar-thumb {
+  background: #ccc; 
+  border-radius: 4px;
+}
+.stock-purchase-list::-webkit-scrollbar-thumb:hover {
+  background: #aaa; 
+}
+
+.sp-chain-card {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid var(--color-black);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Row 1: Logo, Name, Price */
+.sp-row-1 {
+  display: flex;
+  align-items: center;
+  padding: 2px 12px;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+  border-bottom: 1px solid var(--color-black);
+  gap: 4px;
+}
+
+.sp-chain-logo {
+  width: 32px;
+  height: 32px;
+  object-fit: contain; 
+  padding: 2px; 
+}
+
+.sp-chain-name {
+  flex: 1;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.sp-chain-price {
+  font-weight: bold;
+  font-size: 1.5rem; 
+}
+
+/* Row 2: Buttons */
+.sp-row-2 {
+  display: flex;
+  gap: 8px;
+  padding: 6px;
+  background-color: #f5f5f5;
+  justify-content: space-around;
+}
+
+.sp-buy-button {
+  flex: 1;
+  max-width: 100px;
+
+  border: 2px solid rgba(0, 0, 0, 0.9);
+  border-radius: 8px;
+
+  padding: 6px 2px;
+
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+
+  text-shadow:
+    0 1px 2px rgba(0,0,0,0.8),
+    0 0 6px rgba(255,255,255,0.4);
+
+  cursor: pointer;
+
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.25),
+      rgba(255,255,255,0.05) 40%,
+      rgba(0,0,0,0.15)
+    );
+
+  box-shadow:
+    0 4px 0 rgba(0,0,0,0.35),
+    0 6px 12px rgba(0,0,0,0.3),
+    inset 0 1px 0 rgba(255,255,255,0.4);
+
+  transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.sp-buy-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  filter: brightness(1.15);
+  box-shadow:
+    0 6px 0 rgba(0,0,0,0.35),
+    0 10px 20px rgba(0,0,0,0.4),
+    0 0 12px rgba(255,255,255,0.3);
+}
+
+.sp-buy-button:active:not(:disabled) {
+  transform: translateY(3px);
+  box-shadow:
+    0 1px 0 rgba(0,0,0,0.35),
+    0 2px 4px rgba(0,0,0,0.2);
+}
+
+.sp-buy-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  filter: grayscale(40%);
+}
+
+.sp-row-2-empty {
+  padding: 8px;
+  text-align: center;
+  background-color: #f5f5f5;
+  color: #888;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.no-stocks-msg {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+}

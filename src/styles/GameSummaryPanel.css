@@ -1,0 +1,248 @@
+/* src/styles/GameSummaryPanel.css */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes drop-in {
+  from { opacity: 0; transform: translateY(-30px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.game-summary-panel-container {
+  display: flex;
+  flex-direction: column; 
+  animation: fadeIn 0.5s ease-out;
+  width: fit-content;
+  margin-top: 15px;
+  align-items: end; 
+}
+
+.summary-panel {
+  background: rgba(248, 249, 250, 0.95);
+  border-radius: 0px;
+  padding: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #333;
+  width: fit-content;
+}
+
+.summary-panel-title {
+  text-align: center;
+  font-size: 1.3rem;
+  margin-top: -6px;
+  margin-bottom: 8px;
+  color: #333;
+  width: 100%;
+}
+
+.summary-table {
+  width: fit-content;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  font-family: Arial, sans-serif;
+}
+
+.summary-table th, .summary-table td {
+  padding: 6px;
+  text-align: center;
+  border: 1px solid #333;
+  white-space: nowrap;
+}
+
+.summary-table thead th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.player-name-cell {
+  text-align: left;   
+	color: white; 
+	text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.9), 2px 2px 4px rgba(0, 0, 0, 0.8); 
+	font-weight: bold; 
+	font-size: 1.1rem;
+}
+
+.hotel-icon-header {
+  width: 30px;
+  height: 30px;
+  vertical-align: middle; 
+}
+
+/* Detailed Summary Table Column Backgrounds */
+.summary-panel:not(.final-standings-panel) th:nth-child(2), .summary-panel:not(.final-standings-panel) td:nth-child(2) { background-color: var(--flash-luxor-color); color: white; text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.9), 2px 2px 4px rgba(0, 0, 0, 0.8); font-weight: bold; font-size: 1.1rem;}
+.summary-panel:not(.final-standings-panel) th:nth-child(3), .summary-panel:not(.final-standings-panel) td:nth-child(3) { background-color: var(--flash-tower-color); color: white; text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.9), 2px 2px 4px rgba(0, 0, 0, 0.8); font-weight: bold; font-size: 1.1rem;}
+.summary-panel:not(.final-standings-panel) th:nth-child(4), .summary-panel:not(.final-standings-panel) td:nth-child(4) { background-color: var(--flash-festival-color); color: white; text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.9), 2px 2px 4px rgba(0, 0, 0, 0.8); font-weight: bold; font-size: 1.1rem;}
+.summary-panel:not(.final-standings-panel) th:nth-child(5), .summary-panel:not(.final-standings-panel) td:nth-child(5) { background-color: var(--flash-worldwide-color); color: white; text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.9), 2px 2px 4px rgba(0, 0, 0, 0.8); font-weight: bold; font-size: 1.1rem;}
+.summary-panel:not(.final-standings-panel) th:nth-child(6), .summary-panel:not(.final-standings-panel) td:nth-child(6) { background-color: var(--flash-american-color); color: white; text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.9), 2px 2px 4px rgba(0, 0, 0, 0.8); font-weight: bold; font-size: 1.1rem;} 
+.summary-panel:not(.final-standings-panel) th:nth-child(7), .summary-panel:not(.final-standings-panel) td:nth-child(7) { background-color: var(--flash-continental-color); color: white; text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.9), 2px 2px 4px rgba(0, 0, 0, 0.8); font-weight: bold; font-size: 1.1rem;}
+.summary-panel:not(.final-standings-panel) th:nth-child(8), .summary-panel:not(.final-standings-panel) td:nth-child(8) { background-color: var(--flash-imperial-color); color: white; text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.9), 2px 2px 4px rgba(0, 0, 0, 0.8); font-weight: bold; font-size: 1.1rem;}
+.summary-panel:not(.final-standings-panel) th:nth-child(9), .summary-panel:not(.final-standings-panel) td:nth-child(9) { background-color: #03ffc0; color: white; text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.9), 2px 2px 4px rgba(0, 0, 0, 0.8); font-weight: bold; font-size: 1.1rem;}
+ 
+.final-standings-value {
+  color: black; 
+  text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.9), 2px 2px 4px rgba(255, 255, 255, 0.8); 
+  font-weight: bold; 
+  font-size: 1rem;
+}
+
+/* Final Standings Table Column Backgrounds */
+.final-standings-panel .summary-table th:nth-child(2), .final-standings-panel .summary-table td:nth-child(2) { background-color: rgba(46, 204, 113, 0.2); }
+.final-standings-panel .summary-table th:nth-child(3), .final-standings-panel .summary-table td:nth-child(3) { background-color: rgba(241, 196, 15, 0.2); }
+.final-standings-panel .summary-table th:nth-child(4), .final-standings-panel .summary-table td:nth-child(4) { background-color: rgba(52, 152, 219, 0.2);  }
+.final-standings-panel .summary-table th:last-child,
+.final-standings-panel .summary-table td:last-child {
+  background: linear-gradient(135deg, #ffd700, #ffec80, #ffd700);
+  color: #333;
+  font-weight: bold;
+	font-size: 1.1rem;
+}
+
+/* Style for the Total column in the Shareholder Bonus table */
+.bonus-summary-panel .summary-table th:last-child,
+.bonus-summary-panel .summary-table td:last-child {
+  background-color: rgba(241, 196, 15, 0.2);
+}
+
+/* Style for the Total column in the Stock Liquidation table */
+.liquidation-summary-panel .summary-table th:last-child,
+.liquidation-summary-panel .summary-table td:last-child {
+  background-color: rgba(52, 152, 219, 0.2);
+}
+
+
+.highlights-container {
+  display: flex;
+  flex-direction: row;
+  gap: 6px; 
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 2px;
+}
+
+.highlight-card {
+  border-radius: 0px;
+  border: 1px solid gold;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--duration-slow) var(--ease-standard), transform var(--duration-slow) var(--ease-standard);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px; 
+  width: 130px;
+	max-width: 130px;
+  background: var(--card-bg); 
+}
+
+.highlight-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.highlight-image {
+    height: 50px;
+    width: auto;
+    margin-bottom: 4px;
+    object-fit: contain;
+}
+
+.highlight-title,
+.highlight-player-name,
+.highlight-detail {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+  white-space: nowrap;
+}
+
+.highlight-title {
+  font-size: 1.1rem; 
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+  white-space: nowrap;
+}
+.highlight-player-name {
+  font-weight: bold;
+  font-size: 1.3rem; 
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+}
+
+.highlight-detail {
+  font-size: 0.9rem; 
+}
+
+.reset-button-container {
+  margin-top: 10px;
+  text-align: center;
+  animation: fadeIn 1s ease-out;
+}
+
+.winner-podium-container {
+  position: relative;
+  width: 466px;  
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  margin-top: 5px;
+	border: 1px solid gold;
+}
+
+.winner-podium-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.winner-pill-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.winner-display {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.winner-crown {
+  position: absolute;
+  top: -35px; 
+  left: 50%;
+  transform: translateX(-50%); 
+  width: 125px;
+  height: 90px;
+  z-index: 10;
+}
+
+.winner-pill {
+  padding: 12px 28px;
+  margin-bottom: 175px; 
+  border-radius: 30px;
+  color: white;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+  font-weight: bold;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  transform: translateY(50px);
+}
+
+.winner-pill-name {
+  font-size: 1.6rem;
+}

@@ -1,0 +1,55 @@
+/* src/styles/LoadingScreen.css */
+
+.loading-screen-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-black); /* Black background to contrast the white loader */
+  z-index: var(--z-loading);
+}
+
+.loading-text {
+  color: white;
+  margin-top: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { opacity: 0.5; }
+}
+
+/* User Provided CSS */
+.loader {
+  display: inline-flex;
+  gap: 10px;
+}
+.loader:before,
+.loader:after {
+  content: "";
+  height: 20px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(farthest-side,var(--color-black) 95%,#0000) 50%/8px 8px no-repeat
+    var(--color-white);
+  aspect-ratio: 1;
+  animation: l10 1.5s infinite alternate;
+}
+.loader:after {
+  --s:-1;
+}
+@keyframes l10 {
+  0% ,20% {transform:scaleX(var(--s,1)) rotate(0deg) ;clip-path:inset(0)}
+  60%,100%{transform:scaleX(var(--s,1)) rotate(30deg);clip-path:inset(40% 0 0)}
+}
