@@ -18,7 +18,11 @@ interface GameSummaryPanelProps {
 
 const AnimatedCell: React.FC<{ value: number }> = ({ value }) => {
   const displayValue = useCountUp(value, 2000); 
-  return <td className="final-standings-value">${displayValue.toLocaleString()}</td>;
+  return (
+    <td className="final-standings-value">
+      {value > 0 ? `$${displayValue.toLocaleString()}` : '-'}
+    </td>
+  );
 };
  
 const getWinnerPillStyle = (color: string) => {

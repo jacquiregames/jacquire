@@ -1,5 +1,5 @@
 // src/panels/GameLog.tsx
-import React, { useEffect, useRef, useMemo } from 'react';
+import React, { useEffect, useRef, useMemo, useState } from 'react';
 import '../styles/GameLog.css';
 import '../styles/shared-panels.css';
 import { Player } from '../types';
@@ -138,6 +138,7 @@ const getLogEntryClass = (message: string): string => {
 
 export const GameLog: React.FC<GameLogProps> = ({ logEntries, players }) => {
   const logPanelRef = useRef<HTMLDivElement>(null);
+  const [isMaximized, setIsMaximized] = useState(false);
   
   const playerColorMap = useMemo(() => {
     return (players || []).reduce((acc, player) => {
@@ -150,13 +151,31 @@ export const GameLog: React.FC<GameLogProps> = ({ logEntries, players }) => {
     if (logPanelRef.current) {
       logPanelRef.current.scrollTop = logPanelRef.current.scrollHeight;
     }
-  }, [logEntries]);
+  }, [logEntries, isMaximized]);
   
   return (
     <div className="floating-panel game-log-container">
-      <div className="game-log-panel"> 
+      <div className={`game-log-panel ${isMaximized ? 'maximized' : ''}`}> 
         <div className="game-log-banner-item">
           <img src="/images/gamelog/gamelog.webp" alt="Game Log" />
+          
+          {/* Maximize/Minimize Button */}
+          <button 
+            className="gamelog-resize-btn" 
+            onClick={() => setIsMaximized(!isMaximized)}
+            title={isMaximized ? "Minimize Game Log" : "Maximize Game Log"}
+            aria-label={isMaximized ? "Minimize" : "Maximize"}
+          >
+            {isMaximized ? (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            ) : (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="18 15 12 9 6 15"></polyline>
+              </svg>
+            )}
+          </button>
         </div>
 
         <div className="game-log-scroll-area" ref={logPanelRef}>

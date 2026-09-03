@@ -150,15 +150,15 @@ export const StockAvailability: React.FC<StockAvailabilityProps> = ({ stockCount
       <table className="stock-availability-table">
         <thead>
           <tr>
-            <th>Stock</th>
+            <th className="border-bottom-none" style={{ fontWeight: 700 }}>Stock</th>
             <th colSpan={players.length}>Stock Owned</th>
-            <th>Hotel Chain</th>
-            <th>Chain</th>
-            <th>Stock</th>
+            <th className="border-bottom-none">Hotel Chain</th>
+            <th className="border-bottom-none">Chain</th>
+            <th className="border-bottom-none">Stock</th>
             <th colSpan={2}>Current Bonus</th>
           </tr>
           <tr>
-            <th>Available</th>
+            <th className="border-top-none" style={{ fontWeight: 700 }}>Available</th>
             {players.map((player) => {
               const colorObj = getColorObject(player.color); 
               return (
@@ -175,9 +175,9 @@ export const StockAvailability: React.FC<StockAvailabilityProps> = ({ stockCount
                 </th>
               );
             })}
-            <th>Stock</th>
-            <th>Length</th>
-            <th>Price</th>
+            <th className="border-top-none">Stock</th>
+            <th className="border-top-none">Length</th>
+            <th className="border-top-none">Price</th>
             <th>Majority</th>
             <th>Minority</th>
           </tr>
@@ -356,4 +356,3 @@ export const StockAvailability: React.FC<StockAvailabilityProps> = ({ stockCount
     </div>
   );
 };
-

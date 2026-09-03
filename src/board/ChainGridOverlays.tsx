@@ -5,13 +5,6 @@ interface ChainGridOverlaysProps {
   fourByOneGrids: Record<string, [number, number]>;
 }
 
-/**
- * Renders the large "2x2" and "4x1" hotel logo overlays that sit on top of
- * the board grid once a chain occupies one of those special shapes.
- * Extracted out of GameBoard as part of the no-giant-component cleanup —
- * purely presentational, positions itself entirely from the two grid maps
- * it's handed.
- */
 function ChainGridOverlays({ twoByTwoGrids, fourByOneGrids }: ChainGridOverlaysProps) {
   return (
     <>
@@ -22,8 +15,8 @@ function ChainGridOverlays({ twoByTwoGrids, fourByOneGrids }: ChainGridOverlaysP
           alt={`${chain} 2x2`}
           className="two-by-two-image"
           style={{
-            top: `${r * 60 + 5.5}px`,
-            left: `${c * 60 + 5.5}px`,
+            top: `${r * 3.75 + 0.34375}rem`,
+            left: `${c * 3.75 + 0.34375}rem`,
           }}
         />
       ))}
@@ -35,8 +28,8 @@ function ChainGridOverlays({ twoByTwoGrids, fourByOneGrids }: ChainGridOverlaysP
           alt={`${chain} 4x1`}
           className="four-by-one-image"
           style={{
-            top: `${r * 60 + 5.5}px`,
-            left: `${c * 60 + 5.5}px`,
+            top: `${r * 3.75 + 0.34375}rem`,
+            left: `${c * 3.75 + 0.34375}rem`,
           }}
         />
       ))}
