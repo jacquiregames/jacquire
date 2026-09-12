@@ -10,7 +10,6 @@
   --bg-dark: #242424;
   --gradient-title: linear-gradient(to right, var(--color-primary), #00c6ff, var(--color-primary));
   
-  /* Colors for background flash effect (also used as hotel chain brand colors) */
   --flash-luxor-color: #f73406; 
   --flash-tower-color: #f0d143;
   --flash-festival-color: #24a32e;
@@ -19,54 +18,47 @@
   --flash-continental-color: #007a87;
   --flash-imperial-color: #e24666; 
 
-  /* Generic UI colors. */ 
   --color-white: #ffffff;
   --color-black: #000000;
-  --color-off-white: #f8fafc;      /* light panel/header backgrounds */
-  --color-border-slate: #cbd5e1;   /* default card/panel border + fallback chain-theme */
-  --color-muted-slate: #94a3b8;    /* secondary/disabled text, scrollbar thumbs */
-  --color-cyan-accent: #00f2ff;    /* neon cyan accent used in intro/board glows */
-  --color-danger-bright: #e74c3c;  /* bright red accent, distinct from --color-error */
+  --color-off-white: #f8fafc;
+  --color-border-slate: #cbd5e1;
+  --color-muted-slate: #94a3b8;
+  --color-cyan-accent: #00f2ff;
+  --color-danger-bright: #e74c3c;
   --color-light-slate-bg: #aebfcf;
 
-  /* Spacing scale */
-  --space-xs: 4px;
-  --space-sm: 8px;
-  --space-md: 16px;
-  --space-lg: 24px;
-  --space-xl: 32px;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
 
-  /* Corner radius scale */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 16px;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
 
-  /* Shadow scale */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.2);
   --shadow-text-heavy: 0px 0px 8px rgba(0, 0, 0, 0.9), 2px 2px 4px rgba(0, 0, 0, 0.8);
 
-  /* z-index scale */ 
-  --z-panel: 100;          /* small fixed side panels, e.g. HighScore */
-  --z-log: 500;            /* game log panel */
-  --z-modal: 1000;         /* standard modals/overlays */
-  --z-modal-elevated: 2000;/* modals that must sit above standard modals */
-  --z-banner: 5000;        /* full-width game-over / result banners */
-  --z-loading: 9999;       /* full-screen loading cover */
-  --z-tooltip: 10000;      /* hover tooltips: always on top */
+  --z-panel: 100;
+  --z-log: 500;
+  --z-modal: 1000;
+  --z-modal-elevated: 2000;
+  --z-banner: 5000;
+  --z-loading: 9999;
+  --z-tooltip: 10000;
 
- 
-  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);   /* general in/out, hover states */
-  --ease-emphasized: cubic-bezier(0.2, 0, 0, 1);    /* entrances that should feel snappy */
-  --ease-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1); /* things arriving/settling */
-  --duration-fast: 150ms;   /* hover/press feedback */
-  --duration-base: 300ms;   /* default transitions */
-  --duration-slow: 600ms;   /* panel/modal entrances */
-  --duration-reveal: 1000ms; /* count-ups, staged reveals */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-emphasized: cubic-bezier(0.2, 0, 0, 1);
+  --ease-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1);
+  --duration-fast: 150ms;
+  --duration-base: 300ms;
+  --duration-slow: 600ms;
+  --duration-reveal: 1000ms;
 }
 
- 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.001ms !important;
@@ -79,33 +71,33 @@
 html, body {
     margin: 0;
     padding: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     overflow: hidden;
 }
 
-.waiting-message { margin-top: 16px; font-style: italic; }
-.error-message { color: var(--color-error); margin-top: 12px; }
+.waiting-message { margin-top: 1rem; font-style: italic; }
+.error-message { color: var(--color-error); margin-top: 0.75rem; }
 
 .connection-banner {
     position: fixed;
     top: 0; left: 0; right: 0;
     background: #00000000;
     color: white;
-    padding: 10px;
+    padding: 0.625rem;
     text-align: center;
     z-index: var(--z-modal);
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 1.25rem;
 }
 
 .connection-banner button {
     background: white;
     color: #00000000;
     border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
+    padding: 0.3125rem 0.625rem;
+    border-radius: 0.25rem;
     cursor: pointer;
 }

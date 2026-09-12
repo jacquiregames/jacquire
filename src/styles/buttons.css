@@ -1,6 +1,5 @@
 /* src/styles/buttons.css */
 
-/* --- Base Button Styles --- */
 .button-primary { 
   background-image: linear-gradient(90deg, #00ddeb, #5b42f3 51%, #00ddeb);
   background-size: 200% auto;
@@ -8,14 +7,14 @@
   text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.9), 2px 2px 4px rgba(0, 0, 0, 0.8);
   
   border: 0;
-  border-radius: 56px;
+  border-radius: 3.5rem;
   cursor: pointer;
   display: block;
   font-family: system-ui, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 600;
   outline: 0;
-  padding: 16px 21px;
+  padding: 1rem 1.3125rem;
   position: relative;
   text-align: center;
   text-decoration: none;
@@ -42,11 +41,10 @@
   pointer-events: none;
 }
 
-/* --- Hover Effects --- */
 .button-primary:hover {
   box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
   transform: scale(1.05);
-  background-position: right center; /* Triggers the gradient slide */
+  background-position: right center;
 }
 
 .button-primary:active {
@@ -66,13 +64,12 @@
   display: none;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
   .button-primary {
-    padding: 16px 48px;
+    padding: 1rem 3rem;
   }
 }
 
-/* --- Color Variants (Animated Gradients) --- */
 .button-primary.button-buy:hover, 
 .button-primary.button-choose:hover,
 .button-primary.button-confirm:hover,
@@ -84,58 +81,26 @@
   background-position: right center;
 }
 
-/* StockPurchase.tsx  Emerald/Lime Loop */
-.button-buy {
-  background-image: linear-gradient(90deg, #24ef60 0%, #9bff25 51%, #24ef60 100%); 
-}
+.button-buy { background-image: linear-gradient(90deg, #24ef60 0%, #9bff25 51%, #24ef60 100%); }
+.button-choose { background-image: linear-gradient(90deg, #bf4300 0%, #ff7700 51%, #bf4300 100%); }
+.button-confirm { background-image: linear-gradient(90deg, #00d4ff 0%, #00ffff 51%, #00d4ff 100%); }
+.button-merge { background-image: linear-gradient(90deg, #F28FF0 0%, #C347BD 51%, #F28FF0 100%); }
+.button-trade { background-image: linear-gradient(90deg, #b89c0a 0%, #fff45a 51%, #b89c0a 100%); }
+.button-undo { background-image: linear-gradient(90deg, #8B0000 0%, #FF3B30 51%, #8B0000 100%); }
+.button-end-turn { background-image: linear-gradient(90deg, #00ddeb 0%, #5b42f3 51%, #00ddeb 100%); }
+.button-end-game { background-image: linear-gradient(90deg, #C6C78D 0%, #E3E300 51%, #C6C78D 100%); }
 
-/* ChainChoiceModal.tsx  Burnt Orange Loop */
-.button-choose {
-  background-image: linear-gradient(90deg, #bf4300 0%, #ff7700 51%, #bf4300 100%); 
-}
-
-/* MergerResolutionModal.tsx  Cyan/Mint Loop */
-.button-confirm {
-  background-image: linear-gradient(90deg, #00d4ff 0%, #00ffff 51%, #00d4ff 100%);
-}
-
-/* MergerChoiceModal.tsx  Pink/Magenta Loop */
-.button-merge {
-  background-image: linear-gradient(90deg, #F28FF0 0%, #C347BD 51%, #F28FF0 100%);
-}
-
-/* TradeStockPowerModal.tsx  Gold/Yellow Loop */
-.button-trade {
-  background-image: linear-gradient(90deg, #b89c0a 0%, #fff45a 51%, #b89c0a 100%);
-}
-
-/* UNDO: Bronze/Copper Loop */
-.button-undo {
-  background-image: linear-gradient(90deg, #8B0000 0%, #FF3B30 51%, #8B0000 100%); 
-}
-
-/* END TURN: Neon Cyan/Blue Loop */
-.button-end-turn {
-  background-image: linear-gradient(90deg, #00ddeb 0%, #5b42f3 51%, #00ddeb 100%);
-}
-
-/* END GAME: Metallic Gold/Ivory Loop */
-.button-end-game {
-  background-image: linear-gradient(90deg, #C6C78D 0%, #E3E300 51%, #C6C78D 100%);
-}
-
-/* --- Button Container Styles --- */ 
 .endturn-button-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 12px;
-  flex-wrap: wrap; /* Ensures buttons stack if there are too many for the modal width */
-  margin-top: 4px;
+  gap: 0.75rem;
+  flex-wrap: wrap; 
+  margin-top: 0.25rem;
 }
 
 .endturn-button-container .button-primary {
-  padding: 10px 18px; /* Reduced padding to fit inside the modal */
+  padding: 0.625rem 1.125rem; 
   font-size: 1.1rem;
   font-weight: bold;
   transition: var(--duration-slow) var(--ease-standard);
@@ -146,8 +111,8 @@
   transform: scale(1.1);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
   .endturn-button-container .button-primary {
-    padding: 10px 24px;
+    padding: 0.625rem 1.5rem;
   }
 }

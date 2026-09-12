@@ -6,10 +6,10 @@
 }
 
 .reference-panel {
-  margin-top: 12px;
-  padding: 12px;
+  margin-top: 0.75rem;
+  padding: 0.75rem;
   border: 1px solid #ccc;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   background-color: #f9fafb;
   width: 100%;
   overflow: visible;
@@ -17,7 +17,7 @@
 }
 
 .reference-table { width: 100%; border-collapse: collapse; }
-.reference-table th, .reference-table td { padding: 4px 8px; font-size: 0.85rem; }
+.reference-table th, .reference-table td { padding: 0.25rem 0.5rem; font-size: 0.85rem; }
 .reference-table thead { background-color: #f3f4f6; }
 .reference-table tr:last-child td { border-bottom: none; }
 
@@ -25,38 +25,37 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px; 
+  gap: 0.5rem; 
   background: var(--color-primary);
   border: 1px solid black;  
-  border-radius: 0px;
-  padding-right: 4px; 
+  border-radius: 0;
+  padding-right: 0.25rem; 
 }
 
 .tabs-and-toggle-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 12px; 
-  margin-top: -2px;
-  margin-bottom: 12px;
-  flex-wrap: nowrap; /* Prevent toggles from wrapping to the next line */
+  gap: 0.75rem; 
+  margin-top: -0.125rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: nowrap;
 }
-
 
 .tab-buttons-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
 }
 .tab-button {
-  padding: 8px 16px;
+  padding: 0.5rem 1rem;
   font-size: 0.9rem;
   font-weight: 600;
   color: #555;
   background-color: #e9ecef;
   border: 1px solid black;
-  border-radius: 0px;
+  border-radius: 0;
   cursor: pointer;
   transition: all var(--duration-fast) var(--ease-standard);
 } 
@@ -73,8 +72,7 @@
   color: #adb5bd;
 }
 
-/* Toggle Switch */
-input[type='checkbox']:checked + .switch::after { transform: translateX(21px); }
+input[type='checkbox']:checked + .switch::after { transform: translateX(1.3125rem); }
 input[type='checkbox']:checked + .switch { background-color: #2ecc71; }
 
 .toggle-switch-wrapper {
@@ -94,10 +92,10 @@ input[type='checkbox']:checked + .switch { background-color: #2ecc71; }
 .switch {
   position: relative;
   display: inline-block;
-  width: 50px;
-  height: 24px;
+  width: 3.125rem;
+  height: 1.5rem;
   background-color: var(--color-danger-bright); 
-  border-radius: 28px;
+  border-radius: 1.75rem;
   transition: background-color var(--duration-base) var(--ease-standard);
   cursor: pointer;
   border: 1px solid rgba(0, 0, 0, 0.2);
@@ -105,12 +103,12 @@ input[type='checkbox']:checked + .switch { background-color: #2ecc71; }
 .switch::after {
   content: '';
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
   border-radius: 50%;
   background-color: white;
-  top: 2px;
-  left: 8px;
+  top: 0.125rem;
+  left: 0.5rem;
   transition: transform var(--duration-base) var(--ease-standard);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
@@ -119,8 +117,8 @@ input[type='checkbox']:checked + .switch { background-color: #2ecc71; }
   background-color: cyan;
   color: black;
   border: 1px solid black;
-  border-radius: 4px;
-  padding: 2px 8px;
+  border-radius: 0.25rem;
+  padding: 0.125rem 0.5rem;
   font-size: 0.8rem;
   font-weight: bold;
   cursor: pointer;
@@ -139,7 +137,7 @@ input[type='checkbox']:checked + .switch { background-color: #2ecc71; }
   display: flex;
   flex-direction: column;
   align-items: flex-start; 
-  min-height: 280px;
+  min-height: 17.5rem;
   justify-content: flex-start;
 }
  
@@ -147,7 +145,7 @@ input[type='checkbox']:checked + .switch { background-color: #2ecc71; }
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: 24px;
+  gap: 1.5rem;
   justify-content: flex-start;
   width: 100%;
 }
@@ -155,8 +153,8 @@ input[type='checkbox']:checked + .switch { background-color: #2ecc71; }
 .game-summary-tab-content {
   display: flex;
   flex-direction: column; 
-  gap: 24px;
-  align-items: flex-start; /* This is the change */
+  gap: 1.5rem;
+  align-items: flex-start;
   justify-content: flex-start;   
   width: 100%; 
 }

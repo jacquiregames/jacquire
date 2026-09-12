@@ -1,70 +1,50 @@
 /* src/styles/TradeStockPowerModal.css */
 
 .trade-power-panel {
-  width: 500px; /* Widen the panel for two columns */
+  width: 31.25rem;
   border-color: gold;
   border-width: 2px;
 }
 
-/*
- * The .panel-banner-container / .panel-title-image / .panel-title-overlay /
- * .panel-subtitle-overlay banner system, and .modal-backdrop-bottom-right,
- * now live in shared-panels.css. TradeStockPowerModal.tsx applies the
- * "--trade-power" modifier classes for this component's specific spacing
- * deltas.
- *
- * NOTE: this file never actually defined .modal-backdrop-bottom-right —
- * it only worked before because StockPurchase.css happened to also be
- * loaded somewhere in the page. Now that shared-panels.css is imported
- * directly by this component, that hidden dependency is gone.
- */
-
-/* --- Grid Container --- */
-
-
 .trade-power-grid-container {
   display: flex;
   justify-content: space-between;
-  gap: 6px;
-  margin-top: 8px;
+  gap: 0.375rem;
+  margin-top: 0.5rem;
 }
 
 .trade-column {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0.5rem;
   width: 48.5%;
 }
 
 .column-title {
   text-align: center;
   font-size: 1.2rem;
-  margin: 0 0 2px 0;
+  margin: 0 0 0.125rem 0;
   color: #333;
 }
-
-/* --- New Grid-Based Cell Layout --- */
 
 .trade-cell {
   display: grid;
   align-items: center;
-  padding: 8px;
-  border-radius: 6px;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
   cursor: pointer;
   transition: transform var(--duration-fast) var(--ease-standard), box-shadow var(--duration-fast) var(--ease-standard);
   border: 2px solid transparent;
-  gap: 10px;
-  min-height: 44px; /* Ensure consistent height */
+  gap: 0.625rem;
+  min-height: 2.75rem;
 }
 
-/* Left Column Layout: Icon | Name | Stats (Right aligned) */
 .trade-cell.left-layout {
-  grid-template-columns: 32px 1fr auto; 
+  grid-template-columns: 2rem 1fr auto; 
 }
 
-/* Right Column Layout: Available | Name (Right aligned) | Icon */
 .trade-cell.right-layout {
-  grid-template-columns: auto 1fr 32px; 
+  grid-template-columns: auto 1fr 2rem; 
 }
 
 .trade-cell:not(.disabled):hover {
@@ -82,21 +62,17 @@
   transform: scale(1.05); 
 }
 
-/* --- Internal Cell Columns --- */
-
-/* Icon Column */
 .tc-col-icon {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .tc-col-icon img {
-  width: 44px;
-  height: 44px;
+  width: 2.75rem;
+  height: 2.75rem;
   display: block;
 }
 
-/* Name Column */
 .tc-col-name {
   font-weight: bold;
   font-size: 1.2rem;
@@ -104,14 +80,13 @@
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: left;
-  text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.9), 2px 2px 4px rgba(0,0,0,0.8);	
+  text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.9), 2px 2px 4px rgba(0,0,0,0.8); 
 }
 .tc-col-name.right-align {
   text-align: right;
-	padding: 2px;
+  padding: 0.125rem;
 }
 
-/* Stats Column (Left Side) */
 .tc-col-stats {
   display: flex;
   flex-direction: column;
@@ -122,22 +97,17 @@
   text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.9), 2px 2px 4px rgba(0,0,0,0.8);
 }
 
-/* Available Column (Right Side) */
 .tc-col-avail {
   text-align: left;
   font-size: 1.1rem;
-	font-weight: bold;
+  font-weight: bold;
   white-space: nowrap;
-  text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.9), 2px 2px 4px rgba(0,0,0,0.8);	
+  text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.9), 2px 2px 4px rgba(0,0,0,0.8); 
 }
-
-/* --- Buttons --- */
 
 .trade-actions-container {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-top: 10px;
+  gap: 0.75rem;
+  margin-top: 0.625rem;
 }
-
-

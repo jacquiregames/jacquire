@@ -2,10 +2,12 @@
 import asyncio
 import logging
 import os
+import sys
 import json
 import secrets
 from fastapi import FastAPI, HTTPException, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
 # Local imports from our new modules
 from .game_logic import Game
@@ -356,7 +358,12 @@ async def get_price_table():
 @app.get("/highscores")
 async def get_highscores():
     scores = []
-    scores_file = os.path.join(os.path.dirname(__file__), "highscore.txt")
+    # --- CHANGED ---
+    app_data = os.getenv('LOCALAPPDATA', os.path.expanduser('~'))
+    save_dir = os.path.join(app_data, 'jAcquire')
+    scores_file = os.path.join(save_dir, "highscore.txt")
+    # ---------------
+    
     if os.path.exists(scores_file):
         try:
             with open(scores_file, "r") as f:
@@ -492,6 +499,19 @@ async def websocket_endpoint(websocket: WebSocket):
             await websocket.receive_text()
     except WebSocketDisconnect:
         manager.disconnect(websocket)
+
+# Detect if we are running as a PyInstaller executable
+if getattr(sys, 'frozen', False):
+    base_dir = sys._MEIPASS
+else:
+    # Go up 3 levels from src/server/main.py to the root project folder
+    base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+
+dist_dir = os.path.join(base_dir, "dist")
+
+# Only mount if the dist directory exists (i.e., after running `pnpm build`)
+if os.path.exists(dist_dir):
+    app.mount("/", StaticFiles(directory=dist_dir, html=True), name="static")
 
 if __name__ == "__main__":
     import uvicorn

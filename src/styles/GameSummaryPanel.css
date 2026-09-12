@@ -15,14 +15,14 @@
   flex-direction: column; 
   animation: fadeIn 0.5s ease-out;
   width: fit-content;
-  margin-top: 15px;
+  margin-top: 0.9375rem;
   align-items: end; 
 }
 
 .summary-panel {
   background: rgba(248, 249, 250, 0.95);
-  border-radius: 0px;
-  padding: 10px;
+  border-radius: 0;
+  padding: 0.625rem;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   border: 1px solid #333;
   width: fit-content;
@@ -31,8 +31,8 @@
 .summary-panel-title {
   text-align: center;
   font-size: 1.3rem;
-  margin-top: -6px;
-  margin-bottom: 8px;
+  margin-top: -0.375rem;
+  margin-bottom: 0.5rem;
   color: #333;
   width: 100%;
 }
@@ -45,7 +45,7 @@
 }
 
 .summary-table th, .summary-table td {
-  padding: 6px;
+  padding: 0.375rem;
   text-align: center;
   border: 1px solid #333;
   white-space: nowrap;
@@ -58,19 +58,18 @@
 
 .player-name-cell {
   text-align: left;   
-	color: white; 
-	text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.9), 2px 2px 4px rgba(0, 0, 0, 0.8); 
-	font-weight: bold; 
-	font-size: 1.1rem;
+  color: white; 
+  text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.9), 2px 2px 4px rgba(0, 0, 0, 0.8); 
+  font-weight: bold; 
+  font-size: 1.1rem;
 }
 
 .hotel-icon-header {
-  width: 30px;
-  height: 30px;
+  width: 1.875rem;
+  height: 1.875rem;
   vertical-align: middle; 
 }
 
-/* Detailed Summary Table Column Backgrounds */
 .summary-panel:not(.final-standings-panel) th:nth-child(2), .summary-panel:not(.final-standings-panel) td:nth-child(2) { background-color: var(--flash-luxor-color); color: white; text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.9), 2px 2px 4px rgba(0, 0, 0, 0.8); font-weight: bold; font-size: 1.1rem;}
 .summary-panel:not(.final-standings-panel) th:nth-child(3), .summary-panel:not(.final-standings-panel) td:nth-child(3) { background-color: var(--flash-tower-color); color: white; text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.9), 2px 2px 4px rgba(0, 0, 0, 0.8); font-weight: bold; font-size: 1.1rem;}
 .summary-panel:not(.final-standings-panel) th:nth-child(4), .summary-panel:not(.final-standings-panel) td:nth-child(4) { background-color: var(--flash-festival-color); color: white; text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.9), 2px 2px 4px rgba(0, 0, 0, 0.8); font-weight: bold; font-size: 1.1rem;}
@@ -87,7 +86,6 @@
   font-size: 1rem;
 }
 
-/* Final Standings Table Column Backgrounds */
 .final-standings-panel .summary-table th:nth-child(2), .final-standings-panel .summary-table td:nth-child(2) { background-color: rgba(46, 204, 113, 0.2); }
 .final-standings-panel .summary-table th:nth-child(3), .final-standings-panel .summary-table td:nth-child(3) { background-color: rgba(241, 196, 15, 0.2); }
 .final-standings-panel .summary-table th:nth-child(4), .final-standings-panel .summary-table td:nth-child(4) { background-color: rgba(52, 152, 219, 0.2);  }
@@ -96,47 +94,44 @@
   background: linear-gradient(135deg, #ffd700, #ffec80, #ffd700);
   color: #333;
   font-weight: bold;
-	font-size: 1.1rem;
+  font-size: 1.1rem;
 }
 
-/* Style for the Total column in the Shareholder Bonus table */
 .bonus-summary-panel .summary-table th:last-child,
 .bonus-summary-panel .summary-table td:last-child {
   background-color: rgba(241, 196, 15, 0.2);
 }
 
-/* Style for the Total column in the Stock Liquidation table */
 .liquidation-summary-panel .summary-table th:last-child,
 .liquidation-summary-panel .summary-table td:last-child {
   background-color: rgba(52, 152, 219, 0.2);
 }
 
-
 .highlights-container {
   display: flex;
   flex-direction: row;
-  gap: 6px; 
+  gap: 0.375rem; 
   justify-content: center;
   align-items: flex-start;
-  margin-top: 2px;
+  margin-top: 0.125rem;
 }
 
 .highlight-card {
-  border-radius: 0px;
+  border-radius: 0;
   border: 1px solid gold;
-  padding: 10px;
+  padding: 0.625rem;
   text-align: center;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(1.25rem);
   transition: opacity var(--duration-slow) var(--ease-standard), transform var(--duration-slow) var(--ease-standard);
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px; 
-  width: 130px;
-	max-width: 130px;
+  gap: 0.25rem; 
+  width: 8.125rem;
+  max-width: 8.125rem;
   background: var(--card-bg); 
 }
 
@@ -146,9 +141,9 @@
 }
 
 .highlight-image {
-    height: 50px;
+    height: 3.125rem;
     width: auto;
-    margin-bottom: 4px;
+    margin-bottom: 0.25rem;
     object-fit: contain;
 }
 
@@ -180,20 +175,20 @@
 }
 
 .reset-button-container {
-  margin-top: 10px;
+  margin-top: 0.625rem;
   text-align: center;
   animation: fadeIn 1s ease-out;
 }
 
 .winner-podium-container {
   position: relative;
-  width: 466px;  
+  width: 29.125rem;  
   height: auto;
   display: flex;
   justify-content: center;
   align-items: center; 
-  margin-top: 5px;
-	border: 1px solid gold;
+  margin-top: 0.3125rem;
+  border: 1px solid gold;
 }
 
 .winner-podium-image {
@@ -211,7 +206,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 0.625rem;
 }
 
 .winner-display {
@@ -223,24 +218,24 @@
 
 .winner-crown {
   position: absolute;
-  top: -35px; 
+  top: -2.1875rem; 
   left: 50%;
   transform: translateX(-50%); 
-  width: 125px;
-  height: 90px;
+  width: 7.8125rem;
+  height: 5.625rem;
   z-index: 10;
 }
 
 .winner-pill {
-  padding: 12px 28px;
-  margin-bottom: 175px; 
-  border-radius: 30px;
+  padding: 0.75rem 1.75rem;
+  margin-bottom: 10.9375rem; 
+  border-radius: 1.875rem;
   color: white;
   text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
   font-weight: bold;
   border: 2px solid rgba(255, 255, 255, 0.8);
   box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-  transform: translateY(50px);
+  transform: translateY(3.125rem);
 }
 
 .winner-pill-name {

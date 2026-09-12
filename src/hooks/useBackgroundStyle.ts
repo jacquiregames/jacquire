@@ -2,13 +2,7 @@
 import { useState, useMemo } from "react";
 import { GameState } from '../types';
 
-/**
- * The background image cycling (and the derived CSS class for it).
- * Extracted out of App.tsx as part of the no-giant-component cleanup —
- * this is purely cosmetic UI state, unrelated to session/lobby/game logic
- * beyond reading gameStarted/gameState to pick which background class
- * applies.
- */
+ 
 export default function useBackgroundStyle(gameStarted: boolean, gameState: GameState | null) {
   const [showBackground, setShowBackground] = useState<boolean>(true);
   const [currentBackgroundIndex, setCurrentBackgroundIndex] = useState<number>(1);

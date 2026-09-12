@@ -7,15 +7,14 @@
   align-items: center;
   justify-content: center;
   pointer-events: none;
-  z-index: 50; /* Sits cleanly over the board but under modals */
+  z-index: 50; 
   perspective: 1600px;
   overflow: hidden; 
 }
 
-/* Sized dynamically for your 720px GameBoard */
 .impression-wrap {
   position: absolute;
-  width: 420px;
+  width: 26.25rem;
   aspect-ratio: 520 / 320;
   display: flex;
   align-items: center;
@@ -42,9 +41,9 @@
 
 .ink-flash {
   position: absolute;
-  width: 440px;
+  width: 27.5rem;
   aspect-ratio: 520 / 320;
-  border-radius: 10px;
+  border-radius: 0.625rem;
   background: radial-gradient(ellipse at center, rgba(200, 30, 30, 0.35) 0%, rgba(180, 20, 20, 0.12) 45%, transparent 70%);
   opacity: 0;
   z-index: 1;
@@ -61,7 +60,7 @@
 
 .stamp-anchor {
   position: absolute;
-  width: 440px;
+  width: 27.5rem;
   aspect-ratio: 560 / 360;
   display: flex;
   align-items: center;
@@ -109,9 +108,9 @@
 
 .contact-shadow {
   position: absolute;
-  width: 440px;
+  width: 27.5rem;
   aspect-ratio: 560 / 360;
-  border-radius: 18px;
+  border-radius: 1.125rem;
   background: radial-gradient(ellipse at 50% 55%, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.22) 48%, transparent 72%);
   transform: scale(0.35);
   opacity: 0;

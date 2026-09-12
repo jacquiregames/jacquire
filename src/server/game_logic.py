@@ -465,13 +465,6 @@ class Game:
         
         r, c = p["row"], p["col"]
         pre_merger_sizes = p["pre_merger_sizes"]
-        # FIX: this used to rely on _next_defunct_chain_resolution()
-        # incidentally overwriting/clearing self.pending_merger_choice as a
-        # side effect of setting up the (previously shared) TRADE_STOCKS
-        # payload. Now that CHOOSE_MERGER and TRADE_STOCKS have separate
-        # fields, this tie-choice payload has to be cleared explicitly once
-        # it's been consumed, or it lingers in game state/to_dict() after
-        # the phase has moved on.
         self.pending_merger_choice = None
         self._execute_merge(r, c, p["chains"], chain, pre_merger_sizes)
 
@@ -525,8 +518,7 @@ class Game:
         self.message = f"{player_name} discarded {len(dead_tiles)} dead tile(s) and drew {drawn} replacement(s)."
         
         if not any(self.is_tile_playable(tile) for tile in player.tiles):
-            self.message += " Still no valid moves. Advancing to buy phase."
-            # FIX: set to 1 so _continue_turn_after_action (which decrements by 1) lands at 0.
+            self.message += " Still no valid moves. Advancing to buy phase." 
             self.tiles_to_place_this_turn = 1
             self._continue_turn_after_action()
     
@@ -568,7 +560,11 @@ class Game:
             self.message = f"Game over! The winner is {winner_str} with a net worth of ${max_net_worth:,}!"
 
         try:
-           scores_file = os.path.join(os.path.dirname(__file__), "highscore.txt")
+           app_data = os.getenv('LOCALAPPDATA', os.path.expanduser('~'))
+           save_dir = os.path.join(app_data, 'jAcquire')
+           os.makedirs(save_dir, exist_ok=True)
+           scores_file = os.path.join(save_dir, "highscore.txt")
+
            existing_scores = []
            if os.path.exists(scores_file):
                with open(scores_file, "r") as f:
@@ -592,10 +588,7 @@ class Game:
            for p_count, group in grouped_scores.items():
                group.sort(key=lambda x: x["score"], reverse=True)
                final_scores_to_save.extend(group[:3])
-
-           # Schedule the blocking write off the event loop.
-           # FIX: capture the future and attach an error callback so failures
-           # are logged rather than silently swallowed.
+ 
            loop = asyncio.get_running_loop()
            future = loop.run_in_executor(None, Game._write_highscore, scores_file, final_scores_to_save)
 

@@ -1,13 +1,8 @@
-/* Corporate M&A HighScore Container Styles */
-/*
- * .highscore-container now lives in shared-panels.css.
- * HighScore.tsx adds the "floating-panel" base class alongside it.
- */
+/* src/styles/HighScore.css */
 
-/* Cyberpunk Glassmorphism Wrapper */
 .highscore-glow-wrap {
   position: relative;
-  border-radius: 4px; /* Sharper, more corporate corners */
+  border-radius: 0.25rem; 
   padding: 1px;
   background: linear-gradient(135deg, var(--color-cyan-accent), #7000ff, var(--color-cyan-accent));
   background-size: 200% 200%;
@@ -22,18 +17,16 @@
   100% { background-position: 200% 50%; }
 }
 
-/* Inner panel - Corporate Glass */
 .highscore-panel {
   position: relative;
   background: rgba(10, 12, 24, 0.9);
   backdrop-filter: blur(12px);
-  border-radius: 3px;
-  padding: 20px;
+  border-radius: 0.1875rem;
+  padding: 1.25rem;
   overflow: hidden;
   border: 1px solid rgba(0, 242, 255, 0.1);
 }
 
-/* Digital Grid Background Effect */
 .highscore-panel::before {
   content: '';
   position: absolute;
@@ -45,7 +38,6 @@
   pointer-events: none;
 }
 
-/* Scanner line animation */
 .scanner-line {
   position: absolute;
   top: 0;
@@ -64,28 +56,26 @@
   100% { top: 100%; opacity: 0; }
 }
 
-/* Title - High Tech Sans */
 .highscore-title {
   text-align: center;
   font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 800;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--color-cyan-accent);
-  margin-bottom: 4px;
+  margin-bottom: 0.25rem;
   position: relative;
   text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
 }
 
-/* Score rows */
 .score-row {
   display: flex;
   align-items: center;
-  gap: 2px;
-  margin-bottom: 12px;
+  gap: 0.125rem;
+  margin-bottom: 0.75rem;
   position: relative;
-  padding: 10px;
+  padding: 0.625rem;
   background: rgba(255, 255, 255, 0.03);
   border-left: 3px solid transparent;
   transition: all var(--duration-base) var(--ease-standard);
@@ -106,23 +96,21 @@
   to { opacity: 1; transform: translateX(0); }
 }
 
-/* Rank Indicator */
 .rank-badge {
   font-family: 'Courier New', monospace;
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: bold;
   color: var(--color-cyan-accent);
-  width: 24px;
+  width: 1.5rem;
 }
 
-/* Score info */
 .score-info {
   flex: 1;
 }
 
 .score-value {
   font-family: 'Inter', sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--color-white);
   letter-spacing: 0.5px;
@@ -130,7 +118,7 @@
 
 .player-name {
   font-family: 'Inter', sans-serif;
-  font-size: 14px;
+  font-size: 0.875rem;
   color: var(--color-cyan-accent);
   text-transform: uppercase;
   font-weight: 700;
@@ -143,8 +131,8 @@
 }
 
 .pulse-dot {
-  width: 6px;
-  height: 6px;
+  width: 0.375rem;
+  height: 0.375rem;
   border-radius: 9999px;
   background-color: var(--color-cyan-accent);
   animation: pulse-dot-anim 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;

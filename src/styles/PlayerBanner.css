@@ -1,27 +1,24 @@
 /* src/styles/PlayerBanner.css */
 
-/* Main container for the three pills */
 .banner-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%; 
-  margin-bottom: 8px;
-
-  margin-top: -12px;
-  height: 60px; /* Give the container a fixed height */
+  margin-bottom: 0.5rem;
+  margin-top: -0.75rem;
+  height: 3.75rem; 
 }
 
-/* Base style for each "pill" */
 .banner-pill {
-  padding: 8px 24px;
-  border-radius: 30px;
+  padding: 0.5rem 1.5rem;
+  border-radius: 1.875rem;
   font-weight: 600;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 0.9375rem;
   font-size: 1.4rem; 
   border: 2px solid black; 
 }
@@ -30,19 +27,16 @@
   font-size: 1.2em; 
 }
 
-/* Centered pill for the game phase */
 .phase-pill {
-  text-transform: uppercase; /* KEEPING CAPS */
+  text-transform: uppercase;
   letter-spacing: 1px;
-  justify-content: center; /* Center the text horizontally */
+  justify-content: center;
 }
 
-/* Right-aligned pill for symmetry */
 .turn-status-pill {
-    justify-content: flex-end; /* Align content to the right */
+    justify-content: flex-end;
 }
 
-/* Floating text for cash changes */
 .floating-text {
   position: absolute;
   left: 50%;

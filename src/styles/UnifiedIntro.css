@@ -17,42 +17,40 @@
 }
 
 .unified-intro-container {
-  /* Layout only - Background handled by App.css */
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start; 
   align-items: center;
-  padding-top: 220px; 
-  padding-left: 2rem;
-  padding-right: 2rem;
-  padding-bottom: 2rem;
+  padding-top: 25vh; 
+  padding-left: 2vw;
+  padding-right: 2vw;
+  padding-bottom: 2vh;
   box-sizing: border-box;
   background-color: transparent;
   overflow: hidden;
 }
 
-/* New CSS for the Two Column Layout */
 .host-lobby-layout {
   display: flex;
-  justify-content: center; /* Space out items */
-  align-items: flex-start; /* Align items to the top */
-  gap: 40px; /* Gap between columns */
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2.5rem;
   width: 100%;
   box-sizing: border-box;
 }
 
 .how-to-play-container {
   position: absolute;
-  top: 40px;
-  left: 40px;
+  top: 2.5rem;
+  left: 2.5rem;
   z-index: 5;
   background-image: url('/images/banner/howtoplay.webp');
   background-size: 100% 100%; 
   background-repeat: no-repeat;
-  padding: 5px; 
+  padding: 0.3125rem; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -63,7 +61,7 @@
   margin: 0; 
   white-space: nowrap;
   font-size: 1.6rem;
-  padding: 8px 18px;
+  padding: 0.5rem 1.125rem;
 }
   
 @keyframes logo-entrance {
@@ -84,7 +82,7 @@
   top: 0px; 
   left: 50%;
   transform: translateX(-50%);   
-  max-width: 800px; 
+  max-width: 50rem; 
   width: 100%;
   height: auto;  
   margin: 0;   
@@ -96,11 +94,11 @@
 }
 
 .intro-card {
-  margin-top: 80px;
+  margin-top: 5rem;
   background: rgba(255, 255, 255, 0.55);
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
-  border-radius: 16px;
+  border-radius: 1rem;
   padding: 2rem 3rem;
   border: 1px solid #ffee00;
   box-shadow:
@@ -112,7 +110,7 @@
 .join-section {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 2.5rem;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -122,25 +120,25 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-top: -10px;
+  margin-top: -0.625rem;
 }
 
 .name-input {
-  padding: 12px;
+  padding: 0.75rem;
   font-size: 1rem;
-  width: 240px;
-  margin-bottom: 18px;
-  margin-top: 18px;
-  border-radius: 6px;
+  width: 15rem;
+  margin-bottom: 1.125rem;
+  margin-top: 1.125rem;
+  border-radius: 0.375rem;
   border: 1px solid #ccc;
   text-align: center;
 }  
 
 .color-preview-pill { 
-  width: 240px;
-  padding: 12px;
-  margin-bottom: 18px;
-  margin-top: 18px;
+  width: 15rem;
+  padding: 0.75rem;
+  margin-bottom: 1.125rem;
+  margin-top: 1.125rem;
   box-sizing: border-box; 
   justify-content: center;
   animation: pop-in 0.2s ease-out;
@@ -148,31 +146,27 @@
  
 .color-picker-title {
   color: #333;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 0.625rem;
+  margin-bottom: 0.625rem;
   font-size: 1.2rem;
 }
 
 .color-picker {
   display: grid;
   grid-template-columns: repeat(6, 1fr); 
-  gap: 15px;
-  margin-bottom: 20px;
+  gap: 0.9375rem;
+  margin-bottom: 1.25rem;
 }
 
 .color-swatch {
   position: relative; 
-  width: 50px;
-  height: 50px;
-  border-radius: 6px;
+  width: 3.125rem;
+  height: 3.125rem;
+  border-radius: 0.375rem;
   cursor: pointer;
   border: 1px solid white;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   transition: all var(--duration-fast) var(--ease-standard);
-  /* FIX (react-doctor: prefer-tag-over-role): this class now styles a
-     native <button> instead of a div with role="button". Without this,
-     the browser's default button padding/box-sizing would grow the
-     rendered box past the fixed 50x50 set above. */
   padding: 0;
   box-sizing: border-box;
   appearance: none;
@@ -187,8 +181,8 @@
   transform: translateX(-50%);
   background-color: #333;
   color: var(--color-white);
-  padding: 6px 10px;
-  border-radius: 4px;
+  padding: 0.375rem 0.625rem;
+  border-radius: 0.25rem;
   font-size: 0.9rem; 
   white-space: nowrap;
   opacity: 0;
@@ -212,10 +206,9 @@
 .color-swatch.taken {
   cursor: not-allowed;
   opacity: 0.5;
-  filter: grayscale(80%); /* Makes the taken colors look greyed out */
+  filter: grayscale(80%);
 }
 
-/* Places the X securely over the center of the taken swatch */
 .color-swatch.taken::before {
   content: '✖';
   position: absolute;
@@ -226,21 +219,21 @@
   color: rgba(255, 255, 255, 0.9);
   text-shadow: 0px 0px 5px rgba(0, 0, 0, 1), 0px 0px 2px rgba(0, 0, 0, 1);
   z-index: 2;
-  pointer-events: none; /* Allows hovering over the X to still show the "Taken" tooltip */
+  pointer-events: none;
 }
 
 .lobby-container {
   display: flex;
   flex-direction: column;
   align-items: center; 
-  width: 300px; 
+  width: 18.75rem; 
 }
 
 .lobby-title {
   font-size: 3rem;
   font-weight: bold;
-  margin-bottom: 10px;
-  margin-top: 2px;
+  margin-bottom: 0.625rem;
+  margin-top: 0.125rem;
   
   background: linear-gradient(
     to right,
@@ -260,15 +253,15 @@
   display: flex;
   flex-direction: column;
   gap: 0.75rem; 
-  width: 300px;
+  width: 18.75rem;
 }
 
 .player-pill {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 20px;
-  border-radius: 30px; 
+  padding: 0.75rem 1.25rem;
+  border-radius: 1.875rem; 
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -290,17 +283,17 @@
 .host-badge {
   background-color: rgba(255, 255, 255, 0.2);
   color: white;
-  padding: 4px 10px;
-  border-radius: 20px;
+  padding: 0.25rem 0.625rem;
+  border-radius: 1.25rem;
   font-size: 0.7rem;
   font-weight: 700;
   text-shadow: none;
 }
 
 .host-controls {
-  padding: 5px;
-  border-radius: 8px;
-  width: 400px;
+  padding: 0.3125rem;
+  border-radius: 0.5rem;
+  width: 25rem;
   box-sizing: border-box; 
 }
 
@@ -321,15 +314,15 @@
   align-items: center;
   justify-content: space-between;
   background: linear-gradient(46deg,rgba(121, 237, 218, 1) 1%, rgba(45, 253, 173, 1) 100%);
-  padding: 10px 15px;
-  border-radius: 25px;
+  padding: 0.625rem 0.9375rem;
+  border-radius: 1.5625rem;
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 .variant-icon {
-  width: 50px;
-  height: 50px;
-  margin-right: 10px;
+  width: 3.125rem;
+  height: 3.125rem;
+  margin-right: 0.625rem;
 }
 
 .variant-label {
@@ -349,25 +342,24 @@
 }
 
 .waiting-message {
-  margin-top: 16px;
+  margin-top: 1rem;
   font-style: italic;
   color: var(--color-white);
   text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
 }
 
-/* --- Add Bot Row --- */
 .add-bot-row {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  margin-top: 16px;
+  gap: 0.75rem;
+  margin-top: 1rem;
   width: 100%;
 }
 
 .bot-difficulty-select {
-  padding: 10px 14px;
-  border-radius: 20px;
+  padding: 0.625rem 0.875rem;
+  border-radius: 1.25rem;
   border: 1px solid rgba(255, 255, 255, 0.6);
   background-color: rgba(0, 0, 0, 0.4);
   color: white;
@@ -397,6 +389,6 @@
 
 .add-bot-row .button-primary {
   margin: 0;
-  padding: 10px 20px;
+  padding: 0.625rem 1.25rem;
   font-size: 1.1rem;
 }

@@ -1,8 +1,8 @@
 /* src/styles/ReferenceChart.css */
 
 .reference-chart-container {
-  width: 100%; /* Changed from 80% to correctly fill the panel area */
-  padding: 0 4px;
+  width: 100%; 
+  padding: 0 0.25rem;
   box-sizing: border-box;
 }
 
@@ -13,14 +13,14 @@ table.reference-chart {
   font-size: 0.875rem;
   background-color: var(--color-white);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  border-radius: 0px;
+  border-radius: 0;
   overflow: hidden;
 }
  
 table.reference-chart thead th {
   background-color: var(--color-primary);
   color: var(--color-white);
-  padding: 2px 4px;
+  padding: 0.125rem 0.25rem;
   text-align: center;
   vertical-align: middle;
   white-space: nowrap;
@@ -29,7 +29,7 @@ table.reference-chart thead th {
 }
 
 table.reference-chart td {
-  padding: 2px 4px;
+  padding: 0.125rem 0.25rem;
   line-height: 1.2;
   text-align: center;
   vertical-align: middle;
@@ -37,13 +37,13 @@ table.reference-chart td {
   border: 1px solid black;
 }
 
-table.reference-chart tr { height: 24px; }
+table.reference-chart tr { height: 1.5rem; }
 table.reference-chart tbody tr:hover { background-color: #e6f4ff; }
 
 table.reference-chart .stock-icon {
-  width: 16px;
-  height: 16px;
-  margin-right: 4px;
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.25rem;
   vertical-align: middle;
   display: inline-block;
 }
@@ -54,11 +54,9 @@ table.reference-chart .stock-name-cell {
   vertical-align: middle;
 }
 
-/* Explicit Utility Classes to Merge Headers Cleanly */
 table.reference-chart thead th.border-bottom-none { border-bottom: none; }
 table.reference-chart thead th.border-top-none { border-top: none; }
 
-/* Hotel-specific styling (text shadows & background colors) */
 .stock-name-cell[data-stock="luxor"] { background-color: var(--flash-luxor-color); color: white; text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.9), 2px 2px 4px rgba(0, 0, 0, 0.8); }
 .stock-name-cell[data-stock="tower"] { background-color: var(--flash-tower-color); color: white; text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.9), 2px 2px 4px rgba(0, 0, 0, 0.8); }
 .stock-name-cell[data-stock="festival"] { background-color: var(--flash-festival-color); color: white; text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.9), 2px 2px 4px rgba(0, 0, 0, 0.8); }
