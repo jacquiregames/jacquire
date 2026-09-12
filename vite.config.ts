@@ -15,10 +15,18 @@ export default defineConfig({
         chunkSizeWarningLimit: 1000,
         rollupOptions: {
             output: {
-                manualChunks: {
-                    vendor: ['react', 'react-dom'],
-                    particles: ['@tsparticles/confetti', '@fireworks-js/react'],
-                    motion: ['motion']
+                manualChunks(id) {
+                    if (id.includes('node_modules')) {
+                        if (id.includes('react') || id.includes('react-dom')) {
+                            return 'vendor';
+                        }
+                        if (id.includes('@tsparticles') || id.includes('@fireworks-js')) {
+                            return 'particles';
+                        }
+                        if (id.includes('motion')) {
+                            return 'motion';
+                        }
+                    }
                 }
             }
         }
