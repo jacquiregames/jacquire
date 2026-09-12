@@ -1,9 +1,7 @@
-// src/panels/StockCardView.tsx
-import React, { useState, useEffect, useMemo } from 'react';
-import { m, AnimatePresence } from 'motion/react';
+// src/panels/StockCardView.tsx  
 import { useCountUp } from '../hooks/useCountUp';
 import { Player } from '../types';
-import { PLAYER_COLORS, getColorObject } from '../utils/playerColors';
+import { getColorObject } from '../utils/playerColors';
 import { truncateName } from '../utils/uiHelpers';
 import { HOTEL_CHAINS } from '../utils/constants';
 import '../styles/GameSummaryPanel.css';
