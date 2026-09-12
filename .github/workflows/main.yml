@@ -4,10 +4,16 @@ on:
   push:
     branches: [ "main" ]
   workflow_dispatch:
+  release:
+    types: [published] # Triggers the workflow when you publish a new Release
 
 jobs:
   build:
     runs-on: windows-latest
+
+    # Gives the GitHub Actions bot permission to upload files to your releases
+    permissions:
+      contents: write 
 
     steps:
     - name: Checkout Code
@@ -45,3 +51,10 @@ jobs:
       with:
         name: jAcquire-Windows
         path: dist/jAcquire.exe
+
+    # Automatically attach the .exe to the Release page
+    - name: Upload to GitHub Release
+      if: github.event_name == 'release'
+      uses: softprops/action-gh-release@v2
+      with:
+        files: dist/jAcquire.exe
