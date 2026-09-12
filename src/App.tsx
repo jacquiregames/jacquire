@@ -93,7 +93,7 @@ export default function App() {
   const [reconnectFailed, setReconnectFailed] = useState<boolean>(false);
   const [botActionPending, setBotActionPending] = useState<boolean>(false);
 
-  const { showBackground, setShowBackground, currentBackgroundIndex, handleNextBackground, backgroundClass } =
+  const { showBackground, setShowBackground, handleNextBackground, backgroundClass } =
     useBackgroundStyle(gameStarted, gameState);
   const { videoState, videoRef, play: playVideoTransition, reset: resetVideoTransition, handleVideoEnd } =
     useVideoTransition();
